@@ -28,13 +28,8 @@ html{ scroll-behavior: smooth; }
 html.locked,
 body.locked{
   overflow: hidden;
+  height: 100%;
   overscroll-behavior: none;
-}
-
-body.locked{
-  position: fixed;
-  inset: 0;
-  width: 100%;
 }
 
 body{
@@ -70,8 +65,7 @@ img{ max-width: 100%; display: block; }
    ============================================================ */
 .hero{
   position: relative;
-  min-height: 100vh;
-  min-height: 100dvh;
+  min-height: 100svh;
   display: flex;
   align-items: flex-end;
   overflow: hidden;
