@@ -28,7 +28,20 @@ document.addEventListener('touchmove', blockTouchMove, { passive: false });
 if ('scrollRestoration' in history){
   history.scrollRestoration = 'manual';
 }
-window.scrollTo(0, 0);
+
+function resetLockedPosition(){
+  if (opened) return;
+  window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  requestAnimationFrame(() => {
+    if (!opened){
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    }
+  });
+}
+
+resetLockedPosition();
+window.addEventListener('load', resetLockedPosition);
+window.addEventListener('pageshow', resetLockedPosition);
 
 function unlockScroll(){
   document.documentElement.classList.remove('locked');
