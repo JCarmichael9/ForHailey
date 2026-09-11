@@ -97,7 +97,6 @@ img{ max-width: 100%; display: block; }
   letter-spacing: 0.14em;
   color: var(--blush);
   margin: 0 0 18px;
-  text-transform: lowercase;
 }
 .hero__title{
   font-family: var(--font-display);
@@ -337,8 +336,8 @@ img{ max-width: 100%; display: block; }
   padding-bottom: clamp(70px, 10vh, 120px);
 }
 .love__photo-wrap{
-  max-width: 420px;
-  margin: 0 auto clamp(36px, 6vh, 56px);
+  max-width: 600px;
+  margin: 0 auto clamp(36px, 6vh, 36px);
   padding: 0 var(--edge);
 }
 .love__photo{

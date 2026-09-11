@@ -33,30 +33,14 @@ function unlockScroll(){
   document.removeEventListener('touchmove', blockTouchMove);
 }
 
-function easeInOutCubic(t){
-  return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-}
-
-function smoothScrollTo(targetY, duration){
-  const startY = window.pageYOffset;
-  const distance = targetY - startY;
-  const startTime = performance.now();
-
-  function step(now){
-    const elapsed = now - startTime;
-    const progress = Math.min(elapsed / duration, 1);
-    const eased = easeInOutCubic(progress);
-    window.scrollTo(0, startY + distance * eased);
-    if (progress < 1){
-      requestAnimationFrame(step);
-    }
-  }
-  requestAnimationFrame(step);
-}
-
 function openLetter(){
   if (opened) return;
   opened = true;
+
+  unlockScroll();
+
+  const targetY = Math.max(0, letter.getBoundingClientRect().top + window.pageYOffset - 40);
+  window.scrollTo({ top: targetY, left: 0, behavior: 'auto' });
 
   audio.play().catch(() => {
     // Autoplay might still be blocked on some browsers; toggle button lets them retry.
@@ -64,19 +48,7 @@ function openLetter(){
 
   musicToggle.hidden = false;
   requestAnimationFrame(() => musicToggle.classList.add('show'));
-  heroHint.classList.add('hide');
-
-  unlockScroll();
-
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const targetY = letter.getBoundingClientRect().top + window.pageYOffset;
-
-  if (prefersReducedMotion){
-    window.scrollTo(0, targetY);
-  } else {
-    // slight pause after the click so the moment feels deliberate, then a slow cinematic scroll
-    setTimeout(() => smoothScrollTo(targetY, 1600), 350);
-  }
+  heroHint?.classList.add('hide');
 }
 
 openBtn.addEventListener('click', openLetter);
