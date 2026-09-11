@@ -25,6 +25,13 @@ html{ scroll-behavior: smooth; }
   html{ scroll-behavior: auto; }
 }
 
+html.locked,
+body.locked{
+  overflow: hidden;
+  height: 100%;
+  overscroll-behavior: none;
+}
+
 body{
   margin: 0;
   background: var(--cream);

@@ -11,6 +11,49 @@ audio.volume = 0.35;
 
 let opened = false;
 
+// ============================================================
+// LOCK SCROLL UNTIL "OPEN YOUR LETTER" IS CLICKED
+// ============================================================
+function blockScrollKeys(e){
+  const keys = ['ArrowDown','ArrowUp','PageDown','PageUp',' ','Spacebar','Home','End'];
+  if (keys.includes(e.key)) e.preventDefault();
+}
+function blockTouchMove(e){ e.preventDefault(); }
+function blockWheel(e){ e.preventDefault(); }
+
+document.addEventListener('keydown', blockScrollKeys, { passive: false });
+document.addEventListener('wheel', blockWheel, { passive: false });
+document.addEventListener('touchmove', blockTouchMove, { passive: false });
+
+function unlockScroll(){
+  document.documentElement.classList.remove('locked');
+  document.body.classList.remove('locked');
+  document.removeEventListener('keydown', blockScrollKeys);
+  document.removeEventListener('wheel', blockWheel);
+  document.removeEventListener('touchmove', blockTouchMove);
+}
+
+function easeInOutCubic(t){
+  return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+}
+
+function smoothScrollTo(targetY, duration){
+  const startY = window.pageYOffset;
+  const distance = targetY - startY;
+  const startTime = performance.now();
+
+  function step(now){
+    const elapsed = now - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = easeInOutCubic(progress);
+    window.scrollTo(0, startY + distance * eased);
+    if (progress < 1){
+      requestAnimationFrame(step);
+    }
+  }
+  requestAnimationFrame(step);
+}
+
 function openLetter(){
   if (opened) return;
   opened = true;
@@ -23,7 +66,17 @@ function openLetter(){
   requestAnimationFrame(() => musicToggle.classList.add('show'));
   heroHint.classList.add('hide');
 
-  letter.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  unlockScroll();
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const targetY = letter.getBoundingClientRect().top + window.pageYOffset;
+
+  if (prefersReducedMotion){
+    window.scrollTo(0, targetY);
+  } else {
+    // slight pause after the click so the moment feels deliberate, then a slow cinematic scroll
+    setTimeout(() => smoothScrollTo(targetY, 1600), 350);
+  }
 }
 
 openBtn.addEventListener('click', openLetter);
