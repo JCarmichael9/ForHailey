@@ -25,6 +25,11 @@ document.addEventListener('keydown', blockScrollKeys, { passive: false });
 document.addEventListener('wheel', blockWheel, { passive: false });
 document.addEventListener('touchmove', blockTouchMove, { passive: false });
 
+if ('scrollRestoration' in history){
+  history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
+
 function unlockScroll(){
   document.documentElement.classList.remove('locked');
   document.body.classList.remove('locked');
