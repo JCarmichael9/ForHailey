@@ -31,6 +31,12 @@ body.locked{
   overscroll-behavior: none;
 }
 
+body.locked{
+  position: fixed;
+  inset: 0;
+  width: 100%;
+}
+
 body{
   margin: 0;
   background: var(--cream);
