@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3 Months, Hailey</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<canvas id="petals"></canvas>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero" id="hero">
+  <div class="hero__photo" style="background-image:url('assets/images/06-dinner-brick.jpg')"></div>
+  <div class="hero__scrim"></div>
+  <div class="hero__content">
+    <p class="hero__eyebrow">for Hailey</p>
+    <h1 class="hero__title">3 Months With<br>My Favorite Person</h1>
+    <p class="hero__subtitle">Happy 3 months, Hailey <span class="heart">❤</span></p>
+    <button class="btn-open" id="openLetter">
+      <span>Open Your Letter</span>
+    </button>
+    <p class="hero__hint" id="heroHint">tap to begin — the music starts with you</p>
+  </div>
+</header>
+
+<!-- floating music control, appears after opening -->
+<button class="music-toggle" id="musicToggle" aria-label="Pause music" hidden>
+  <span class="music-toggle__icon">♫</span>
+</button>
+<audio id="bgMusic" loop preload="auto">
+  <source src="assets/audio/hey-there-delilah.mp3" type="audio/mpeg">
+</audio>
+
+<main id="letter" class="letter">
+
+  <!-- ===================== INTRO NOTE ===================== -->
+  <section class="reveal intro-note">
+    <p class="intro-note__text">Okay, so — I wrote you an actual letter. Not a card, not a text at midnight, an actual letter. I put it on the internet because you deserve better than my handwriting. Scroll.</p>
+  </section>
+
+  <!-- ===================== SECTION 1: FIVE WORDS ===================== -->
+  <section class="section words" id="words">
+    <div class="section-head reveal">
+      <p class="section-head__kicker">a little proof, in case you needed it</p>
+      <h2 class="section-head__title">5 Words I'd Use To<br>Describe My Girlfriend</h2>
+      <p class="section-head__note">(soon to be fiancé — just have to wait like 2 years)</p>
+    </div>
+
+    <article class="word-card word-card--photo reveal" style="--rot:-2deg">
+      <div class="word-card__photo">
+        <img src="assets/images/09-first-hangout.jpg" alt="Hailey and me smiling together, heads close, taken at night">
+      </div>
+      <div class="word-card__body">
+        <span class="word-card__num">1</span>
+        <h3 class="word-card__word">Kind</h3>
+        <p>You are the sweetest and nicest person I've ever met, even to people who are complete assholes to you, you still always remain the bigger person and it is genuinely so incredibly admirable baby.</p>
+      </div>
+    </article>
+
+    <article class="word-card word-card--plain reveal">
+      <div class="word-card__body">
+        <span class="word-card__num">2</span>
+        <h3 class="word-card__word">Caring</h3>
+        <p>I've never met somebody who cares so deeply about people before, when you see somebody who is struggling or going through something difficult or maybe just an old lady walking across the road your first instinct is to help and I love that about you.</p>
+      </div>
+    </article>
+
+    <article class="word-card word-card--photo word-card--reverse reveal" style="--rot:1.5deg">
+      <div class="word-card__photo">
+        <img src="assets/images/10-dinner-sign.jpg" alt="Hailey and me dressed up, standing close, hand on my chest">
+      </div>
+      <div class="word-card__body">
+        <span class="word-card__num">3</span>
+        <h3 class="word-card__word">Confident</h3>
+        <p>I'm going to be honest my girlfriend is a baddie and she carries herself like it and it's sweet to watch you be so comfortable in your own skin and whenever you don't I'm always here Hailey and I will never NEVER NEVER not want to reassure you.</p>
+      </div>
+    </article>
+
+    <article class="word-card word-card--photo reveal" style="--rot:-1deg">
+      <div class="word-card__photo">
+        <img src="assets/images/07-pajamas-bw.jpg" alt="Black and white photo of us in matching pajamas, laughing">
+      </div>
+      <div class="word-card__body">
+        <span class="word-card__num">4</span>
+        <h3 class="word-card__word">Supportive</h3>
+        <p>I don't know if this is the right word to describe what I'm going to explain but whatever. I've never felt so comfortable and at home with anybody like I am with you Hailey, I truly feel like when I'm with you all of my problems go away and if they don't then I have somebody with me to be there with me rather than being alone and that means so much babe it really does.</p>
+      </div>
+    </article>
+
+    <article class="word-card word-card--plain word-card--final reveal">
+      <div class="word-card__body">
+        <span class="word-card__num">5</span>
+        <h3 class="word-card__word">Intelligent</h3>
+        <p>Now somebody is going to think I'm lying here but I'm not. You are probably the most emotionally intelligent person I know and it truly shows in the way you handle yourself and your friendships and our relationships and I'm incredibly lucky to have somebody so smart when the person that she's with isn't exactly the brightest bulb in the box.</p>
+        <p class="word-card__sign">I love you baby and I hope this showed that.</p>
+      </div>
+    </article>
+  </section>
+
+  <!-- ===================== SECTION 2: WHAT I LOVE MOST ===================== -->
+  <section class="section love" id="love">
+    <div class="love__photo-wrap reveal">
+      <img src="assets/images/04-bedroom.jpg" alt="Hailey and me close together, her smiling at the camera" class="love__photo">
+    </div>
+    <div class="love__text reveal">
+      <p class="section-head__kicker">what I love most about her</p>
+      <p>What I love most about my amazing girlfriend is your eyes. Now I can go on and on about that and I will in a moment but right now I wanna talk about something about you like really you that I love.</p>
+      <p>I love your smile and I'm not trying to be generic or boring, I'm being so genuine my love. Your smile lights up my entire day. It is the most amazing and beautiful and special thing in this entire world, seeing my person happy really does make me so happy Hailey. It is the most heartwarming and sweet thing I have ever had the privilege of seeing. It's like there are fireworks going off in your head and it just makes me feel like a little kid seeing his favorite football player like I'm in genuine awe every time I see it Hailey.</p>
+      <p class="love__emphasis">And don't even get me started on your eyes babe. They are the most gorgeous, beautiful, spectacular, little balls of joy I've ever witnessed. Anytime I look into your eyes all I can imagine is our future together and it really makes me so excited because I can't wait until we get to that chapter of our life and I can't believe you're the amazing person I get to do it together with.</p>
+      <p class="love__whisper">Hopefully this didn't sound cliche because I truly meant everything I said my love.</p>
+    </div>
+  </section>
+
+  <!-- ===================== SECTION 3: OUR STORY ===================== -->
+  <section class="section story" id="story">
+    <div class="section-head reveal">
+      <p class="section-head__kicker">our story</p>
+      <h2 class="section-head__title">Our Story</h2>
+      <p class="story__intro">Ahem... Ahem..... <em>(We're going to imagine I'm talking to our kids)</em>. Jeremy and Tabatha — <em>it's a joke, don't kill me</em> — you guys have probably been wanting to know how me and your amazing, spectacular mother met, but I got you guys, don't worry about it.</p>
+    </div>
+
+    <div class="timeline">
+
+      <div class="timeline__item reveal">
+        <div class="timeline__marker"></div>
+        <div class="timeline__content">
+          <span class="timeline__tag">the beginning</span>
+          <h3>Meeting on the cruise</h3>
+          <p>So when I was 20 I went on a cruise with my family and on that cruise is where I met the most amazing person. Now I don't mean to brag but she came up to me — just saying, just saying — but we met by this burger spot on the cruise and started texting a little from there.</p>
+          <p>We didn't hang out until the last day though because I was scared she didn't like me and she thought I didn't like her. But when we first hung out I instantly fell in love, she was perfect. Everything, down to the last minute detail. I don't think Michelangelo could've made something more beautiful and with such an amazing heart to match it.</p>
+        </div>
+      </div>
+
+      <div class="timeline__item reveal">
+        <div class="timeline__marker"></div>
+        <div class="timeline__content">
+          <span class="timeline__tag">the distance</span>
+          <h3>Talking after the cruise</h3>
+          <p>Cruises only last so long and we left the cruise the next morning but I promised her I would see her again. She was in Illinois and me in New Jersey but I was determined to make it work. There was no chance I was letting my soulmate leave my life just because she lived far.</p>
+        </div>
+      </div>
+
+      <div class="timeline__item timeline__item--feature reveal">
+        <div class="timeline__marker timeline__marker--feature"></div>
+        <div class="timeline__content">
+          <span class="timeline__tag">2.5 months of talking online</span>
+          <h3>She flew to New Jersey for my prom</h3>
+          <p>So after only talking online for 2 and a half months she took the trip to New Jersey for my prom where we were reunited for one weekend.... and that was it.</p>
+          <div class="timeline__photos">
+            <img src="assets/images/02-prom-flowers.jpg" alt="Hailey and me at prom, her holding red flowers, hiding our faces" style="--rot:-3deg">
+            <img src="assets/images/05-prom-carry.jpg" alt="Me carrying Hailey in her red prom dress in a field" style="--rot:2deg">
+          </div>
+          <p class="timeline__aside">Now after all this, you might be wondering — were you guys like boyfriend girlfriend yet? Nope. It was a big commitment with the long distance (for one person) so we waited some more.</p>
+        </div>
+      </div>
+
+      <div class="timeline__item reveal">
+        <div class="timeline__marker"></div>
+        <div class="timeline__content">
+          <span class="timeline__tag">~3 weeks later</span>
+          <h3>Seeing each other again</h3>
+          <p>Until the next time we saw each other, which was about 3 weeks later.</p>
+          <img src="assets/images/03-mall.jpg" alt="Mirror selfie of Hailey and me at a store" class="timeline__single-photo">
+        </div>
+      </div>
+
+      <div class="timeline__item timeline__item--feature reveal">
+        <div class="timeline__marker timeline__marker--feature"></div>
+        <div class="timeline__content">
+          <span class="timeline__tag">july 4th</span>
+          <h3>Under the fireworks</h3>
+          <p>And when we were together on July 4th under the fireworks you're never going to guess what happened. Your mother asked <em>ME</em> to be <em>HER</em> boyfriend. I was the jolliest guy in the entire world.</p>
+          <img src="assets/images/08-fireworks.jpg" alt="Hailey and me from behind, watching fireworks together" class="timeline__single-photo">
+          <p class="timeline__aside">And yes — that's what that football is, that's in the case on my desk.</p>
+          <img src="assets/images/01-proposal-football.jpg" alt="The rhinestone football commemorating the day, held in our hands" class="timeline__single-photo timeline__single-photo--small">
+        </div>
+      </div>
+
+      <div class="timeline__item reveal">
+        <div class="timeline__marker"></div>
+        <div class="timeline__content">
+          <span class="timeline__tag">and now</span>
+          <h3>To be continued...</h3>
+          <p>And I mean yeah, that's about it for now — we haven't gotten married yet or moved in together or had you guys yet, but I'm going to make sure all that happens. Don't worry.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== SECTION 4: OUR FUTURE ===================== -->
+  <section class="section future" id="future">
+    <div class="future__inner reveal">
+      <p class="section-head__kicker future__kicker">our future</p>
+      <h2 class="section-head__title future__title">Our Future</h2>
+      <p class="future__text">I think I can keep this one shorter and sweeter. Just imagine with me.</p>
+      <p class="future__text future__text--big">We live together in a big-ish house with a pool and a hot tub not too far from the shore in Tennessee, with 2 or 3 kids <span class="future__hand">(you can decide)</span>.</p>
+      <p class="future__text">I'm a lawyer at a decent law firm and you have your own esthetician place. We have 2 like tiny highland cows and a dog or 2 depending on what the queen wants — and every single day for the rest of my life I get to wake up and look at those spectacular, hazel eyes.</p>
+      <p class="future__text future__closing">I truly am the luckiest man alive to have us be by each other's sides through everything. I love you.</p>
+    </div>
+  </section>
+
+  <!-- ===================== SECTION 5: FINAL MESSAGE ===================== -->
+  <section class="closing" id="closing">
+    <div class="closing__photo" style="background-image:url('assets/images/06-dinner-brick.jpg')"></div>
+    <div class="closing__scrim"></div>
+    <div class="closing__content reveal">
+      <p class="closing__title">Happy 3 Months, Hailey <span class="heart">❤</span></p>
+      <p class="closing__message">You're my favorite person, my best friend, and — soon enough — my fiancé. Here's to every month after this one.</p>
+      <p class="closing__from">— yours, always</p>
+    </div>
+  </section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
